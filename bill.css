@@ -1,0 +1,217 @@
+/* Bill/Invoice Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+}
+
+/* Bill Container */
+.bill-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Bill Header */
+.bill-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.bill-header h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.bill-header p {
+    opacity: 0.9;
+}
+
+/* Bill Info Grid */
+.bill-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.info-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.info-card h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.info-card p {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Product Table */
+.product-table {
+    width: 100%;
+    padding: 30px;
+}
+
+.product-table h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+/* Total Section */
+.total-section {
+    padding: 20px 30px 30px 30px;
+    text-align: right;
+    border-top: 2px solid #eee;
+}
+
+.total-amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 30px 30px 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.btn-print {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #333;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Print Styles */
+@media print {
+    .button-group, .btn, .bill-header {
+        display: none;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .bill-container {
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    .product-table {
+        padding: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bill-container {
+        margin: 20px;
+    }
+    
+    .bill-info {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .product-table {
+        padding: 20px;
+        overflow-x: auto;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .btn {
+        text-align: center;
+    }
+}
